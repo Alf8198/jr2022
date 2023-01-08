@@ -13,36 +13,34 @@ import java.util.Map;
 */
 
 public class Solution {
+
     public static Map<String, Date> createMap() throws ParseException {
         DateFormat dateFormat = new SimpleDateFormat("MMMMM d yyyy", Locale.ENGLISH);
         Map<String, Date> map = new HashMap<>();
         map.put("Смирнов", dateFormat.parse("MAY 1 2012"));
-        map.put("Смирно", dateFormat.parse("JUNE 1 2012"));
-        map.put("Смирн", dateFormat.parse("JULY 1 2012"));
-        map.put("Смир", dateFormat.parse("MAY 1 2012"));
-        map.put("Сми", dateFormat.parse("MAY 1 2012"));
-        map.put("См", dateFormat.parse("MAY 1 2012"));
-        map.put("Смирновa", dateFormat.parse("MAY 1 2012"));
-        map.put("Смирновs", dateFormat.parse("MAY 1 2012"));
-        map.put("Смирновd", dateFormat.parse("MAY 1 2012"));
-        map.put("Смирноf", dateFormat.parse("MAY 1 2012"));
-
-        return map;//напишите тут ваш код
+        map.put("Иванов", dateFormat.parse("JUNE 1 2012"));
+        map.put("Кузнецов", dateFormat.parse("JULY 1 2012"));
+        map.put("Соколов", dateFormat.parse("AUGUST 1 2012"));
+        map.put("Попов", dateFormat.parse("SEPTEMBER 1 2012"));
+        map.put("Лебедев", dateFormat.parse("MAY 1 2012"));
+        map.put("Новиков", dateFormat.parse("JUNE 1 2012"));
+        map.put("Козлов", dateFormat.parse("JUNE 1 2012"));
+        map.put("Морозов", dateFormat.parse("JUNE 1 2012"));
+        map.put("Петров", dateFormat.parse("JUNE 1 2012"));
+        removeAllSummerPeople(map);
+        return map;
     }
 
     public static void removeAllSummerPeople(Map<String, Date> map) {
-        Map<String,Date> copy = new HashMap<>(map);
-        for (String key: copy.keySet()) {
-            Date date = copy.get(key);
-            int month = date.getMonth()+1;
-            if (month == 6 || month == 7 || month == 8){
-                map.remove(key);
+        Map<String, Date> copy = new HashMap<>(map);
+        for (Map.Entry<String,Date> pair: copy.entrySet()) {
+            if(pair.getValue().getMonth() > 4 && pair.getValue().getMonth() < 8){
+                map.remove(pair.getKey());
             }
-        }//напишите тут ваш код
-
+        }//напишите тут ваш ко
     }
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws ParseException {
+        System.out.println(createMap());
     }
 }
