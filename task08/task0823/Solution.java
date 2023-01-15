@@ -16,8 +16,8 @@ public class Solution {
         String res = "";
         char[] chars = string.toCharArray();
         for (int i = 0; i < chars.length; i++) {
-            char ch = (i == 0 || chars[i-1] == ' ') ? Character.toUpperCase(chars[i]) : chars[i];
-            res+=ch;
+            char ch = (i == 0 || chars[i - 1] == ' ') ? Character.toUpperCase(chars[i]) : chars[i];
+            res += ch;
         }
         System.out.println(res);
     }
