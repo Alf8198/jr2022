@@ -52,9 +52,9 @@ public class Solution {
     }
     public static int method5() {
         StackTraceElement[] a = Thread.currentThread().getStackTrace();
-        System.out.println("Я метод "+a[1].getMethodName());
-        System.out.println("Меня вызвал "+a[2].getMethodName());
-        System.out.println("Вызов произошел из строки номер "+a[2].getLineNumber());
+        System.out.println("Я метод " + a[1].getMethodName());
+        System.out.println("Меня вызвал метод " + a[2].getMethodName());
+        System.out.println("Меня вызвали из строки " + a[2].getLineNumber());
         return  /*напишите тут ваш код*/ a[2].getLineNumber();
     }
 }
