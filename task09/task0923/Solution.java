@@ -2,7 +2,6 @@ package com.javarush.task.task09.task0923;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 
 /* 
 Гласные и согласные
@@ -12,29 +11,29 @@ public class Solution {
     public static char[] vowels = new char[]{'а', 'я', 'у', 'ю', 'и', 'ы', 'э', 'е', 'о', 'ё'};
 
     public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);//напишите тут ваш код
-        String s = scanner.nextLine();
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));//напишите тут ваш код
+        String s = bufferedReader.readLine();
 
-        StringBuffer bufferVowels = new StringBuffer();
-        StringBuffer bufferNotVowels = new StringBuffer();
+        StringBuffer sbVowels = new StringBuffer();
+        StringBuffer sbNotVowels = new StringBuffer();
 
-        for (char ch : s.toCharArray()) {
-            if(isVowel(ch)){
-                bufferVowels.append(ch).append(" ");
-            } else if (ch != ' ') {
-                bufferNotVowels.append(ch).append(" ");
+        for (char character : s.toCharArray()) {
+            if (isVowel(character)) {
+                sbVowels.append(character).append(" ");
+            } else if (character != ' ') {
+                sbNotVowels.append(character).append(" ");
             }
         }
 
-        System.out.println(bufferVowels);
-        System.out.println(bufferNotVowels);
+        System.out.println(sbVowels);
+        System.out.println(sbNotVowels);
     }
 
     // метод проверяет, гласная ли буква
-    public static boolean isVowel(char character){
-        character = Character.toLowerCase(character);
-        for (char vowel: vowels) {
-            if (character == vowel){
+    public static boolean isVowel(char character) {
+        character = Character.toLowerCase(character);  // приводим символ в нижний регистр - от заглавных к строчным буквам
+        for (char vowel : vowels) {  // ищем среди массива гласных
+            if (character == vowel) {
                 return true;
             }
         }
